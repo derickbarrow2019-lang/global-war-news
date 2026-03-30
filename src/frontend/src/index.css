@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+    /* GWN Dark Theme Tokens - OKLCH L C H */
+    --background: 0.09 0.002 264;
+    --foreground: 0.93 0 0;
+    --card: 0.155 0.004 264;
+    --card-foreground: 0.93 0 0;
+    --popover: 0.155 0.004 264;
+    --popover-foreground: 0.93 0 0;
+    --primary: 0.68 0.19 47;
+    --primary-foreground: 0.09 0 0;
+    --secondary: 0.22 0.005 264;
+    --secondary-foreground: 0.93 0 0;
+    --muted: 0.22 0.005 264;
+    --muted-foreground: 0.72 0.005 264;
+    --accent: 0.45 0.22 27;
+    --accent-foreground: 0.97 0 0;
+    --destructive: 0.45 0.22 27;
+    --destructive-foreground: 0.97 0 0;
+    --border: 0.22 0.005 264;
+    --input: 0.22 0.005 264;
+    --ring: 0.68 0.19 47;
+    --chart-1: 0.68 0.19 47;
+    --chart-2: 0.45 0.22 27;
+    --chart-3: 0.6 0.14 200;
+    --chart-4: 0.75 0.12 150;
+    --chart-5: 0.55 0.18 320;
+    --sidebar: 0.13 0.003 264;
+    --sidebar-foreground: 0.93 0 0;
+    --sidebar-primary: 0.68 0.19 47;
+    --sidebar-primary-foreground: 0.09 0 0;
+    --sidebar-accent: 0.22 0.005 264;
+    --sidebar-accent-foreground: 0.93 0 0;
+    --sidebar-border: 0.22 0.005 264;
+    --sidebar-ring: 0.68 0.19 47;
+    /* Custom brand tokens */
+    --breaking: 0.45 0.22 27;
+    --brand: 0.68 0.19 47;
+    --surface-raised: 0.18 0.004 264;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .text-breaking {
+    color: oklch(var(--breaking));
+  }
+  .bg-breaking {
+    background-color: oklch(var(--breaking));
+  }
+  .text-brand {
+    color: oklch(var(--brand));
+  }
+  .bg-brand {
+    background-color: oklch(var(--brand));
+  }
+  .border-breaking {
+    border-color: oklch(var(--breaking));
+  }
+  .border-brand {
+    border-color: oklch(var(--brand));
+  }
+  .bg-surface-raised {
+    background-color: oklch(var(--surface-raised));
+  }
+}
+
+/* Ticker animation */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-ticker {
+  animation: ticker-scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--muted-foreground));
+}
